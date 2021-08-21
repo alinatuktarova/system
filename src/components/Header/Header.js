@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
 import styles from './Header.module.scss'
 import img from '../../img/logo.PNG'
+import { setMenu } from '../../actions/menuAction'
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
 
   function handleOnPress(e) {
     if (e.key === 'Enter') {
@@ -20,7 +23,8 @@ const Header = () => {
           className={`${styles.header__burger_menu} ${open && styles.activeBigMenu}`}
           tabIndex={0}
           onClick={() => {
-            setOpen(!open)
+            setOpen(!open);
+            dispatch(setMenu());
           }}
           role="button"
           onKeyPress={handleOnPress}
