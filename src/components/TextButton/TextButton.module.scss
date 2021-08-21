@@ -1,0 +1,17 @@
+@import '../../mixins/colors.scss';
+@import "../../mixins/fonts.scss";
+
+.TextButton{
+    @include Titles;
+    margin-top: 0;
+    padding: 10px 0px; 
+    width: 100%;   
+    transition: 0.4s ease;
+    cursor: pointer;
+    background: $color-orange;
+    color: white;
+    border: none;
+    &:hover{
+        background: $color-purple;
+    } 
+}
