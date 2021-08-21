@@ -1,4 +1,39 @@
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
+
+html{
+  height: 100%;
+}
+
+head{
+  height: 100%;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+#root{
+  height: 100%;
+}
+
+a{
+  text-decoration: none;
+}
+
+::-webkit-scrollbar{
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: #a1a1a1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track{
+  background-color: white;
+}
+
