@@ -1,0 +1,38 @@
+@import '../../mixins/colors.scss';
+@import "../../mixins/fonts.scss";
+
+.menu{
+    background-color: $color-orange;
+    padding: 25px;
+    width: 300px;
+    position: absolute;
+    top: 70px;
+    right: 0;
+}
+
+.menu__field_student{
+    display: block;
+    @include Subjects;
+    cursor: pointer;
+    height: 40px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px auto 25px auto;
+}
+
+.menu__field_exit{
+    display: block;
+    @include Subjects;
+    cursor: pointer;
+    height: 40px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu__none{
+    display: none;
+}
