@@ -9,6 +9,9 @@ p{
   height: 100%;
 }
 
-.box{
+.body{
   flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

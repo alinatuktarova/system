@@ -1,0 +1,29 @@
+@import "../../mixins/fonts.scss";
+@import '../../mixins/colors.scss';
+
+.block{
+    min-width: 350px;
+}
+
+.authorization{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border: 2px solid $color-orange;
+    background-color: $color-light-purple;
+}
+
+.error{
+    display: block;
+    @include Subjects;
+    font-size: 12px;
+    color: $color-orange;
+    margin: 0 0 8px 0;
+}
+
+.authorization__title{
+    @include Headline;
+    display: block;
+    font-size: 30px;
+    text-align: center;
+}
