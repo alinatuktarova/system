@@ -1,3 +1,7 @@
 export const SETMENU_SWITCH_TYPES = {
   SETMENU_SWITCH: '[REDUX][SETMENU_SWITCH]',
 }
+
+export const VALUES_TYPES = {
+  SET_VALUES: '[REDUX][SET_VALUES]',
+}

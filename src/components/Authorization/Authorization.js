@@ -2,12 +2,15 @@ import React from 'react'
 import { Formik } from 'formik'
 import * as yup from 'yup'
 import { useHistory } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import styles from './Authorization.module.scss'
 import TextButton from '../TextButton/TextButton'
 import AuthorizationInput from '../AuthorizationInput/AuthorizationInput'
+import { setValue } from '../../actions/ValuesAction'
 
 const Authorization = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
   const userSchema = yup.object().shape({
     email: yup.string().typeError('Неверно введен email').required('Введите email'),
     password: yup.string().required('Обязательное поле'),
@@ -20,8 +23,9 @@ const Authorization = () => {
           password: '',
         }}
         onSubmit={(values) => {
-          if (values.password === 'test' && values.email === 'test@mail.ru') {
+          if (values.password === 'test' && values.email === 'test') {
             history.push('/diary');
+            dispatch(setValue());
           }
         }}
         validationSchema={userSchema}
@@ -60,7 +64,7 @@ const Authorization = () => {
             && errors.password
             && <p className={styles.error}>{errors.password}</p>
             }
-            <TextButton text="Войти" Block={!isValid && !dirty} func={handleSubmit} />
+            <TextButton text="Войти" func={handleSubmit} />
           </div>
         )}
       </Formik>
