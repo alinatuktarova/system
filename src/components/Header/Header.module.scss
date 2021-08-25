@@ -15,6 +15,19 @@
 	color: white;
 }
 
+.header__name{
+	display: block;
+	@include Student;
+	color: white;
+	font-size: 18px;
+	margin-right: 25px;
+}
+
+.header__box{
+	display: flex;
+	align-items: center;
+}
+
 .header__img{
     cursor: pointer;
     object-fit: contain;
@@ -58,4 +71,8 @@
 }
 .activeBigMenu:not(:active)>span:nth-child(2) {
 	transition: opacity 0.4s 0.10s;
+}
+
+.none{
+	display: none;
 }
