@@ -30,3 +30,25 @@
     font-size: 30px;
     text-align: center;
 }
+
+.errorMessage{
+    display: block;
+    @include Student;
+    font-size: 14px;
+    white-space: pre-wrap;
+    color: $color-orange;
+    text-align: center;
+}
+
+.none{
+    display: none;
+}
+
+.errorMessage__box{
+    height: 20px;
+    margin-top: 10px;
+}
+
+.error__box{
+    height: 22px;
+}
