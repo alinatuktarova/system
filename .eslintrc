@@ -39,7 +39,7 @@
     "react/prop-types" : 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", "tsx"] }],
     "import/first": "off",     
-    "no-unused-vars": "error",     
+    "no-unused-vars": "warn",     
     "react-hooks/rules-of-hooks": "error",
     "semi": "off",
     // "react-hooks/exhaustive-deps": "off",

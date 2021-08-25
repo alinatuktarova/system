@@ -1,0 +1,17 @@
+@import '../../mixins/colors.scss';
+@import "../../mixins/fonts.scss";
+
+.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.box__title{
+    @include Headline;
+}
+
+.box__table{
+    display: grid;
+    @include Subjects;
+}

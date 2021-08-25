@@ -1,0 +1,126 @@
+
+@import '../../mixins/colors.scss';
+@import "../../mixins/fonts.scss";
+.box{
+    display: flex;
+    align-items: center;
+}
+
+
+.fisrtLine{
+    display: flex;
+}
+
+.fisrtLine div {
+    border: 1px solid;
+    height: 50px;
+    padding: 0 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include Subjects;
+    border: 1px solid $color-light-black;
+    background-color: $color-light-purple;
+}
+
+.box__buttons{
+    display: flex;
+    width: 100%;
+    margin-bottom: 30px;
+    padding-right: 50px;
+}
+
+.box__buttons_add{
+    width: 50%;
+    margin-right: 20px;
+}
+
+.box__buttons_check{
+    width: 50%;
+}
+
+.subject, .input__subject{
+    display: block;
+    height: 50px;
+    width: 150px;
+    @include Subjects;
+    border: 1px solid $color-light-black;
+}
+
+.grade, .input__grade{
+    display: block;
+    height: 50px;
+    width: 70px;
+    @include Subjects;
+    border: 1px solid $color-light-black;
+    text-align: center;
+}
+
+.lessons, .input__lessons{
+    display: block;
+    height: 50px;
+    width: 250px;
+    @include Subjects;
+    border: 1px solid $color-light-black;
+    text-align: center;
+}
+
+.credit, .input__credit{
+    display: block;
+    height: 50px;
+    width: 100px;
+    @include Subjects;
+    border: 1px solid $color-light-black;
+    text-align: center;
+}
+
+.input__credit, .input__grade, .input__lessons, .input__subject{
+    background-color: white;
+    padding: 0 10px;
+}
+.input__credit, .input__grade, .input__lessons, .input__subject{
+    outline: none;
+    background-color: white;
+}
+
+.lineGrades{
+    display: flex;
+}
+
+.lineGrades div {
+    border: 1px solid;
+    height: 50px;
+    padding: 0 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include Subjects;
+    border: 1px solid $color-light-black;
+    background-color: white;
+}
+
+.input__error{
+    border: 1px solid #ff00009e;
+}
+
+.delete_button{
+    height: 30px;
+    width: 30px;
+    background-image: url(../../img/delete.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+    margin-left: 20px;
+    transition: 0.5s;
+}
+
+.delete_button:hover{
+    background-image: url(../../img/delete1.png);
+}
+
+.delete_nobutton{
+    height: 30px;
+    width: 30px;
+    margin-left: 20px;
+}

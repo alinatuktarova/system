@@ -17,10 +17,10 @@ const Header = () => {
   return (
     <>
       <div className={styles.header}>
-        <img className={styles.header__img} src={img} alt="Pharm.helper" />
-        <h1 className={styles.header__title}>Название</h1>
+        <img className={styles.header__img} src={img} alt="" />
+        <h1 className={styles.header__title}>Учет успеваемости</h1>
         <div
-          className={`${styles.header__burger_menu} ${open && styles.activeBigMenu}`}
+          className={`${styles.header__burger_menu} ${open ? styles.activeBigMenu : ''}`}
           tabIndex={0}
           onClick={() => {
             setOpen(!open);
