@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Formik } from 'formik'
 import * as yup from 'yup'
 import { useHistory } from 'react-router-dom'
@@ -11,9 +11,10 @@ import { setValue } from '../../actions/ValuesAction'
 const Authorization = () => {
   const history = useHistory();
   const dispatch = useDispatch();
+  const [errorMessage, setErrorMessage] = useState(false);
   const userSchema = yup.object().shape({
-    email: yup.string().typeError('Неверно введен email').required('Введите email'),
-    password: yup.string().required('Обязательное поле'),
+    email: yup.string().required('Введите email'),
+    password: yup.string().required('Введите пароль'),
   })
   return (
     <div className={styles.block}>
@@ -26,6 +27,8 @@ const Authorization = () => {
           if (values.password === 'test' && values.email === 'test') {
             history.push('/diary');
             dispatch(setValue());
+          } else {
+            setErrorMessage(true);
           }
         }}
         validationSchema={userSchema}
@@ -37,8 +40,6 @@ const Authorization = () => {
           handleChange,
           handleBlur,
           handleSubmit,
-          isValid,
-          dirty,
         }) => (
           <div className={styles.authorization}>
             <span className={styles.authorization__title}>Вход в систему</span>
@@ -48,9 +49,17 @@ const Authorization = () => {
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.email}
-              placeholder="Email"
+              placeholder="Логин"
             />
-            {touched.email && errors.email && <p className={styles.error}>{errors.email}</p>}
+            <div className={styles.error__box}>
+              {
+            touched.email
+            && errors.email
+            && (
+              <span className={styles.error}>{errors.email}</span>
+            )
+            }
+            </div>
             <AuthorizationInput
               type="password"
               name="password"
@@ -59,12 +68,17 @@ const Authorization = () => {
               value={values.password}
               placeholder="Пароль"
             />
-            {
-            touched.password
+            <div className={styles.error__box}>
+              {touched.password
             && errors.password
-            && <p className={styles.error}>{errors.password}</p>
-            }
+            && (
+              <span className={`${styles.error}`}>{errors.password}</span>
+            )}
+            </div>
             <TextButton text="Войти" func={handleSubmit} />
+            <div className={styles.errorMessage__box}>
+              <span className={`${errorMessage ? styles.errorMessage : styles.none}`}>Не удается войти.</span>
+            </div>
           </div>
         )}
       </Formik>
