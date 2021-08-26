@@ -1,0 +1,53 @@
+@import '../../mixins/colors.scss';
+@import "../../mixins/fonts.scss";
+
+.fisrtLine{
+    display: flex;
+}
+
+.fisrtLine div {
+    border: 1px solid;
+    height: 50px;
+    padding: 0 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include Subjects;
+    border: 1px solid $color-light-black;
+    background-color: $color-light-purple;
+}
+
+.subject, .input__subject{
+    display: block;
+    height: 50px;
+    width: 150px;
+    @include Subjects;
+    border: 1px solid $color-light-black;
+}
+
+.grade, .input__grade{
+    display: block;
+    height: 50px;
+    width: 70px;
+    @include Subjects;
+    border: 1px solid $color-light-black;
+    text-align: center;
+}
+
+.lessons, .input__lessons{
+    display: block;
+    height: 50px;
+    width: 250px;
+    @include Subjects;
+    border: 1px solid $color-light-black;
+    text-align: center;
+}
+
+.credit, .input__credit{
+    display: block;
+    height: 50px;
+    width: 100px;
+    @include Subjects;
+    border: 1px solid $color-light-black;
+    text-align: center;
+}
