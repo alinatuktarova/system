@@ -2,7 +2,7 @@ import {
   Formik, FieldArray, Form, Field,
 } from 'formik';
 import * as yup from 'yup'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styles from './Line.module.scss'
 import TextButton from '../TextButton/TextButton';
 
@@ -27,6 +27,10 @@ const Line = () => {
       }),
     ),
   })
+
+  const remItem = (index) => {
+    setExam((exams) => [...exams.slice(0, index), ...exams.slice(index + 1)]);
+  }
 
   return (
     <Formik
@@ -217,7 +221,7 @@ const Line = () => {
                             <Field
                               name={`allValues[${index}].credit`}
                               className={styles.input__credit}
-                              value={exam[index]}
+                              value={exam[index] ? exam[index] : ''}
                               disabled
                             />
                           </div>
@@ -225,10 +229,16 @@ const Line = () => {
                               index > 0 && (
                               <div
                                 className={styles.delete_button}
-                                onClick={() => remove(index)}
+                                onClick={() => {
+                                  remove(index);
+                                  remItem(index);
+                                }}
                                 tabIndex={0}
                                 role="button"
-                                onKeyPress={() => remove(index)}
+                                onKeyPress={() => {
+                                  remove(index);
+                                  remItem(index);
+                                }}
                                 aria-label="Delete"
                               />
                               )
