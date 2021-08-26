@@ -5,6 +5,7 @@ import * as yup from 'yup'
 import React, { useState } from 'react'
 import styles from './Line.module.scss'
 import TextButton from '../TextButton/TextButton';
+import TitleLine from '../TitleLine/TitleLine';
 
 const Line = () => {
   const [exam, setExam] = useState([]);
@@ -106,17 +107,7 @@ const Line = () => {
                           <TextButton func={handleSubmit} text="Проставить зачет" />
                         </div>
                       </div>
-                      <div className={styles.fisrtLine}>
-                        <div className={styles.grade}>№</div>
-                        <div className={styles.subject}>Предмет</div>
-                        <div className={styles.grade}>5</div>
-                        <div className={styles.grade}>4</div>
-                        <div className={styles.grade}>3</div>
-                        <div className={styles.grade}>2</div>
-                        <div className={styles.grade}>1</div>
-                        <div className={styles.lessons}>Пропущенные занятия</div>
-                        <div className={styles.credit}>Зачет</div>
-                      </div>
+                      <TitleLine />
                       {
                       allValues.map((valuesss, index) => (
                         <div className={styles.box}>
@@ -244,11 +235,11 @@ const Line = () => {
                               )
                           }
                           {
-                               index === 0 && (
-                               <div
-                                 className={styles.delete_nobutton}
-                               />
-                               )
+                              index === 0 && (
+                              <div
+                                className={styles.delete_nobutton}
+                              />
+                              )
                           }
                         </div>
                       ))
