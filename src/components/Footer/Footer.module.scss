@@ -7,7 +7,7 @@
     background-color: $color-black;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     color: white;
     left: 0;
     bottom: 0;
@@ -16,16 +16,6 @@
 .footer__title{
     display: block;
     @include Subjects;
+    font-size: 12px;
     margin-left: 28px;
-}
-
-.footer__block_text{
-    display: flex;
-    @include Subjects;
-    display: block;
-    cursor: pointer;
-    margin-right: 28px;
-    &:first-child{
-        margin-left: 30px;
-    }
 }
