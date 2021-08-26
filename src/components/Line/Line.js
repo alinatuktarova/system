@@ -2,12 +2,17 @@ import {
   Formik, FieldArray, Form, Field,
 } from 'formik';
 import * as yup from 'yup'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './Line.module.scss'
 import TextButton from '../TextButton/TextButton';
 
 const Line = () => {
   const [exam, setExam] = useState([]);
+  let finalObject = [{
+    discipline: '',
+    average_rating: '',
+    isChecked: '',
+  }];
 
   const userSchema = yup.object().shape({
     allValues: yup.array().of(
@@ -38,7 +43,7 @@ const Line = () => {
         }],
       }}
       onSubmit={(values) => {
-        console.log('values.allValues', values.allValues);
+        setExam([]);
         values.allValues.map((value) => {
           let sum = Number(value.five * 5)
             + Number(value.four * 4)
@@ -51,13 +56,20 @@ const Line = () => {
             + Number(value.two)
             + Number(value.one);
           let final = sum / k;
+          let checked;
           if ((final > 4.2) && (Number(value.lessons) < 8)) {
-            let cloned = [...exam];
-            setExam([...cloned, 'Да']);
+            checked = true;
+            setExam((exams) => [...exams, 'Да']);
           } else {
-            let cloned = [...exam];
-            setExam([...cloned, 'Нет']);
+            checked = false;
+            setExam((exams) => [...exams, 'Нет']);
           }
+          finalObject = {
+            discipline: value.subject,
+            average_rating: final,
+            isChecked: checked,
+          }
+          console.log(finalObject);
           return <></>
         })
       }}
@@ -122,6 +134,7 @@ const Line = () => {
                                 && styles.input__error}`}
                               onBlur={handleBlur}
                               onChange={handleChange}
+                              value={allValues[index].subject || ''}
                             />
                             <Field
                               name={`allValues[${index}].five`}
