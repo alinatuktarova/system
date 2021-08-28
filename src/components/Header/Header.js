@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import styles from './Header.module.scss'
 import img from '../../img/logo.PNG'
 import { setMenu } from '../../actions/menuAction'
@@ -19,9 +18,7 @@ const Header = () => {
   return (
     <>
       <div className={styles.header}>
-        <Link to="/" className={styles.header__img}>
-          <img className={styles.header__img} src={img} alt="" />
-        </Link>
+        <img className={styles.header__img} src={img} alt="" />
         <h1 className={styles.header__title}>Учет успеваемости</h1>
         <div className={styles.header__box}>
           <div className={`${name ? styles.header__name : styles.none}`}>Туктарова А. Р.</div>

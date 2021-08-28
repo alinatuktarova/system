@@ -19,7 +19,7 @@ const Line = () => {
     allValues: yup.array().of(
       yup.object().shape({
         subject: yup.string().min(3).max(16).required(),
-        five: yup.number().required(),
+        five: yup.number().min(1).required(),
         four: yup.number().required(),
         three: yup.number().required(),
         two: yup.number().required(),
@@ -142,6 +142,7 @@ const Line = () => {
                                 && errors.allValues[index].five
                                 && styles.input__error}`}
                               onBlur={handleBlur}
+                              min="1"
                               onChange={handleChange}
                             />
                             <Field
