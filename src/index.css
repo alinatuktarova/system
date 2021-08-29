@@ -22,6 +22,7 @@ head{
 
 a{
   text-decoration: none;
+  color: black;
 }
 
 ::-webkit-scrollbar{
