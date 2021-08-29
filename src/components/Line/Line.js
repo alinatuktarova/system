@@ -9,7 +9,7 @@ import TitleLine from '../TitleLine/TitleLine';
 
 const Line = () => {
   const [exam, setExam] = useState([]);
-  let finalObj = [];
+  let totalResults = [];
 
   const userSchema = yup.object().shape({
     allValues: yup.array().of(
@@ -51,12 +51,12 @@ const Line = () => {
             + Number(value.three * 3)
             + Number(value.two * 2)
             + Number(value.one * 1);
-          let k = Number(value.five)
+          let count = Number(value.five)
             + Number(value.four)
             + Number(value.three)
             + Number(value.two)
             + Number(value.one);
-          let final = sum / k;
+          let final = sum / count;
           let checked;
           if ((final > 4.2) && (Number(value.lessons) < 8)) {
             checked = true;
@@ -70,10 +70,10 @@ const Line = () => {
             average_rating: final,
             isChecked: checked,
           }
-          finalObj.push(finalObject);
-          return <></>
+          totalResults.push(finalObject);
+          return null
         })
-        console.log(finalObj);
+        console.log(totalResults);
       }}
       validationSchema={userSchema}
     >
