@@ -8,13 +8,9 @@ import styles from './DropDownMenu.module.scss'
 const DropDownMenu = () => {
   const dispatch = useDispatch();
   const MenuState = useSelector((state) => state.menuState.menuState);
-  // const name = useSelector((state) => state.valuesState.valuesState);
-  // let location = useLocation();
-
   function handleOnUnShow(e) {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && MenuState) {
       dispatch(setMenu());
-      dispatch(setValue());
     }
   }
 
@@ -37,7 +33,6 @@ const DropDownMenu = () => {
           <div className={styles.menu}>
             <div className={`${!MenuState ? styles.menu__none : ''} ${MenuState ? styles.menu__field_student : ''}`}>О студенте</div>
             <Link
-              // replace={location.pathname === '/'}
               to="/"
               className={styles.link}
               onClick={() => {

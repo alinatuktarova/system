@@ -1,5 +1,5 @@
 import {
-  Formik, FieldArray, Form, Field,
+  Formik, FieldArray, Field,
 } from 'formik';
 import * as yup from 'yup'
 import React, { useState } from 'react'
@@ -85,10 +85,9 @@ const Line = () => {
         handleBlur,
         handleChange,
       }) => (
-        <Form onSubmit={handleSubmit}>
-          <div>
-            <FieldArray type="text" name="allValues">
-              {
+        <div>
+          <FieldArray type="text" name="allValues">
+            {
                 (fieldArrayProps) => {
                   const {
                     push, remove,
@@ -252,9 +251,8 @@ const Line = () => {
                   );
                 }
             }
-            </FieldArray>
-          </div>
-        </Form>
+          </FieldArray>
+        </div>
       )}
     </Formik>
   )

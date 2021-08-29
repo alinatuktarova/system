@@ -10,8 +10,3 @@
 .box__title{
     @include Headline;
 }
-
-.box__table{
-    display: grid;
-    @include Subjects;
-}
