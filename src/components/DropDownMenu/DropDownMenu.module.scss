@@ -8,6 +8,7 @@
     position: absolute;
     top: 70px;
     right: 0;
+    z-index: 5;
 }
 
 .menu__field_student{
@@ -35,4 +36,15 @@
 
 .menu__none{
     display: none;
+}
+
+.background{
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+}
+
+.link{
+    z-index: 3;
 }

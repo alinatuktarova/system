@@ -9,22 +9,18 @@ import TitleLine from '../TitleLine/TitleLine';
 
 const Line = () => {
   const [exam, setExam] = useState([]);
-  let finalObject = [{
-    discipline: '',
-    average_rating: '',
-    isChecked: '',
-  }];
+  let finalObj = [];
 
   const userSchema = yup.object().shape({
     allValues: yup.array().of(
       yup.object().shape({
         subject: yup.string().min(3).max(16).required(),
-        five: yup.number().min(1).required(),
-        four: yup.number().required(),
-        three: yup.number().required(),
-        two: yup.number().required(),
-        one: yup.number().required(),
-        lessons: yup.number().required(),
+        five: yup.number().min(0).required(),
+        four: yup.number().min(0).required(),
+        three: yup.number().min(0).required(),
+        two: yup.number().min(0).required(),
+        one: yup.number().min(0).required(),
+        lessons: yup.number().min(0).required(),
       }),
     ),
   })
@@ -69,14 +65,15 @@ const Line = () => {
             checked = false;
             setExam((exams) => [...exams, 'Нет']);
           }
-          finalObject = {
+          let finalObject = {
             discipline: value.subject,
             average_rating: final,
             isChecked: checked,
           }
-          console.log(finalObject);
+          finalObj.push(finalObject);
           return <></>
         })
+        console.log(finalObj);
       }}
       validationSchema={userSchema}
     >
@@ -109,8 +106,8 @@ const Line = () => {
                       </div>
                       <TitleLine />
                       {
-                      allValues.map((valuesss, index) => (
-                        <div className={styles.box}>
+                      allValues.map((_, index) => (
+                        <div className={styles.box} key={index}>
                           <div className={styles.lineGrades}>
                             <Field
                               name="Number"
@@ -144,6 +141,7 @@ const Line = () => {
                               onBlur={handleBlur}
                               min="1"
                               onChange={handleChange}
+                              value={allValues[index].five || ''}
                             />
                             <Field
                               name={`allValues[${index}].four`}
@@ -157,6 +155,7 @@ const Line = () => {
                                 && styles.input__error}`}
                               onBlur={handleBlur}
                               onChange={handleChange}
+                              value={allValues[index].four || ''}
                             />
                             <Field
                               name={`allValues[${index}].three`}
@@ -170,6 +169,7 @@ const Line = () => {
                                 && styles.input__error}`}
                               onBlur={handleBlur}
                               onChange={handleChange}
+                              value={allValues[index].three || ''}
                             />
                             <Field
                               name={`allValues[${index}].two`}
@@ -183,6 +183,7 @@ const Line = () => {
                                 && styles.input__error}`}
                               onBlur={handleBlur}
                               onChange={handleChange}
+                              value={allValues[index].two || ''}
                             />
                             <Field
                               name={`allValues[${index}].one`}
@@ -196,6 +197,7 @@ const Line = () => {
                                 && styles.input__error}`}
                               onBlur={handleBlur}
                               onChange={handleChange}
+                              value={allValues[index].one || ''}
                             />
                             <Field
                               name={`allValues[${index}].lessons`}
@@ -209,6 +211,7 @@ const Line = () => {
                                 && styles.input__error}`}
                               onBlur={handleBlur}
                               onChange={handleChange}
+                              value={allValues[index].lessons || ''}
                             />
                             <Field
                               name={`allValues[${index}].credit`}
