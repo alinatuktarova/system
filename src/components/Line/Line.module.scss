@@ -6,23 +6,6 @@
     align-items: center;
 }
 
-
-.fisrtLine{
-    display: flex;
-}
-
-.fisrtLine div {
-    border: 1px solid;
-    height: 50px;
-    padding: 0 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    @include Subjects;
-    border: 1px solid $color-light-black;
-    background-color: $color-light-purple;
-}
-
 .box__buttons{
     display: flex;
     width: 100%;
