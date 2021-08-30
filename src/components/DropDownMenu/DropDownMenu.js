@@ -43,7 +43,7 @@ const DropDownMenu = () => {
               }}
             >
               <div
-                className={`${!MenuState ? styles.menu__none : ''} ${MenuState ? styles.menu__field_exit : ''}`}
+                className={`${MenuState ? styles.menu__field_exit : styles.menu__none}`}
                 onClick={() => {
                   if (MenuState) {
                     dispatch(setMenu());

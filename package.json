@@ -2,6 +2,7 @@
   "name": "system",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://alinatuktarova.github.io/system/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/user-event": "^12.8.3",
@@ -21,7 +22,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --coverage --watchAll --env=jest-environment-jsdom-sixteen",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
   },
   "eslintConfig": {
     "extends": [
